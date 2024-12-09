@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+    <form action="">
+        <table>
+            <tr>
+                <td>
+                    username:
+                </td>
+                <td>
+                    <input type="text" name="" id="txt_username" placeholder="Username" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    password:
+                </td>
+                <td>
+                    <input type="password" name="" id="txt_password" placeholder="Password" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button onclick="signup()">SIGN UP</button>
+                </td>
+            </tr>
+        </table>
+    
+    </form>
+    
+</body>
+</html>
+<script>
+    function signup(){
+        const user=document.getElementById("txt_username").value;
+               const password=document.getElementById("txt_password").value;
+        if(user&&password!=""){
+        alert("Username is:"+user);
+        alert("Password is:"+password);
+        const data= JSON.parse(localStorage.getItem('data'))|| [];
+        data.push({
+            username: user,
+            pass:password
+        });
+        
+        localStorage.setItem('data', JSON.stringify(data));
+        console.log()
+        }else{
+            alert("aahhh sala?")
+        }
+        
+        
+    }
+</script>
